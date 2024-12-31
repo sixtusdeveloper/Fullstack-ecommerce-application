@@ -1,0 +1,57 @@
+<div class="navbar bg-base-100">
+    <div class="navbar-start">
+        <div class="dropdown">
+            <a class="text-lg btn btn-ghost">
+                <div routerLink="/" class="flex items-center gap-2 logo p-2 rounded-xl">
+                    <img src="/logo.png" alt="logo" class="w-8 h-8">
+                    <span class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text">
+                        ShopEasy
+                    </span>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="navbar-center flex">
+       <div class="menu menu-sm sm:menu-lg menu-horizontal px-1">
+            <li><a href="/">Home</a></li>
+            <li>
+                <details #productMenu>
+                    <summary>Products</summary>
+                    <ul>
+                        <li><a href="/products">All</a></li>
+                        <li><a href="/products/1">Products</a></li>
+                        <li><a href="/products/2">Products</a></li>
+                        <li><a href="/products/3">Products</a></li>
+                    </ul>
+                </details>
+            </li>
+
+            <li>
+                <details #adminMenu>
+                    <summary>Admin</summary>
+                    <ul class="z-30">
+                        <li><a href="/admin">Admin</a></li>
+                    </ul>
+                </details>
+            </li>
+        </div>
+    </div>
+
+    <div class="navbar-end pe-4 flex align-items-center">
+        <div class="dropdown dropdown-end pe-4">
+            <div tabindex="0" role="button">
+                <fa-icon [icon]="['fas', 'user']" class="menu-icon"></fa-icon>
+            </div>
+            <ul class="dropdown-content menu menu-lg bg-base-100 rounded-box z-10 w-52 p-2 shadow">
+                <li><button class="link">Login</button></li>
+            </ul>
+        </div>
+        
+        <div class="dropdown dropdown-end me-2" routerLink="/cart">
+            <div tabindex="0" role="button">
+                <fa-icon [icon]="['fas', 'cart-shopping']" class="menu-icon"></fa-icon>
+            </div>
+        </div>
+    </div>
+
+</div>
