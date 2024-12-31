@@ -1,0 +1,94 @@
+{
+  "name": "ecommerce-frontend",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "app",
+  "sourceRoot": "apps/ecommerce-frontend/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/ecommerce-frontend",
+        "index": "apps/ecommerce-frontend/src/index.html",
+        "browser": "apps/ecommerce-frontend/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/ecommerce-frontend/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/ecommerce-frontend/public"
+          }
+        ],
+        "styles": ["apps/ecommerce-frontend/src/styles.scss"],
+        "scripts": [],
+        "server": "apps/ecommerce-frontend/src/main.server.ts",
+        "ssr": {
+          "entry": "apps/ecommerce-frontend/src/server.ts"
+        },
+        "prerender": true
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "4kb",
+              "maximumError": "8kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "ecommerce-frontend:build:production"
+        },
+        "development": {
+          "buildTarget": "ecommerce-frontend:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "ecommerce-frontend:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/ecommerce-frontend/jest.config.ts"
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "ecommerce-frontend:build",
+        "staticFilePath": "dist/apps/ecommerce-frontend/browser",
+        "spa": true
+      }
+    }
+  }
+}
