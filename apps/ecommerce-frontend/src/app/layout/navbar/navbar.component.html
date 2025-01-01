@@ -13,24 +13,24 @@
     </div>
     <div class="navbar-center flex">
        <div class="menu menu-sm sm:menu-lg menu-horizontal px-1">
-            <li><a href="/">Home</a></li>
+            <li><a class="navbar-link" href="/">Home</a></li>
             <li>
                 <details #productMenu>
-                    <summary>Products</summary>
+                    <summary class="navbar-link">Products</summary>
                     <ul>
-                        <li><a href="/products">All</a></li>
-                        <li><a href="/products/1">Products</a></li>
-                        <li><a href="/products/2">Products</a></li>
-                        <li><a href="/products/3">Products</a></li>
+                        <li><a class="navbar-link" href="/products">All</a></li>
+                        <li><a class="navbar-link" href="/products/1">Products</a></li>
+                        <li><a class="navbar-link" href="/products/2">Products</a></li>
+                        <li><a class="navbar-link" href="/products/3">Products</a></li>
                     </ul>
                 </details>
             </li>
 
             <li>
                 <details #adminMenu>
-                    <summary>Admin</summary>
+                    <summary class="navbar-link">Admin</summary>
                     <ul class="z-30">
-                        <li><a href="/admin">Admin</a></li>
+                        <li><a class="navbar-link" href="/admin">Admin</a></li>
                     </ul>
                 </details>
             </li>
@@ -43,7 +43,7 @@
                 <fa-icon [icon]="['fas', 'user']" class="menu-icon"></fa-icon>
             </div>
             <ul class="dropdown-content menu menu-lg bg-base-100 rounded-box z-10 w-52 p-2 shadow">
-                <li><button class="link">Login</button></li>
+                <li><button class="link text-sm">Login</button></li>
             </ul>
         </div>
         
